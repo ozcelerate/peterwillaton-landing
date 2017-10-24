@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation Project</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px !important;
+        }
+        .container {
+            width:100%;
+            height:100vh;
+            background-color:#1e519e;
+            margin:0px;
+            padding: 0px;
+            position: relative;
+            overflow: hidden;
+        }
+        img.circle {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            padding: 0px;
+            margin: 0px;
+            -ms-transform: translate(25px,25px); /* IE 9 */
+            -webkit-transform: translate(25px,25px); /* Safari */
+            transform: translate(25px,25px); /* Standard syntax */
+            /* Animation to spin and move the sphere */
+            -webkit-animation: spin 1000ms linear 2, moveLeftToRight 2s linear 1, fadeIn 3s ease 2s 1, zoomIn 2s ease 2s 1, slideRight 1s ease-out 4s 1;
+            -moz-animation: spin 1000ms linear 2, moveLeftToRight 2s linear 1, fadeIn 3s ease 2s 1, zoomIn 2s ease 2s 1, slideRight 1s ease-out 4s 1;
+            -ms-animation: spin 1000ms linear 2, moveLeftToRight 2s linear 1, fadeIn 3s ease 2s 1, zoomIn 2s ease 2s 1, slideRight 1s ease-out 4s 1;
+            animation: spin 1000ms linear 2, moveLeftToRight 2s linear 1, fadeIn 3s ease 2s 1, zoomIn 2s ease 2s 1, slideRight 1s ease-out 4s 1;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+            position: absolute;
+            left: 0;
+            top:50%;
+        }
+        /* Spinning the sphere using key frames */
+        @-ms-keyframes spin {
+          from { -ms-transform: rotate(0deg); }
+          to { -ms-transform: rotate(360deg); }
+        }
+        @-moz-keyframes spin {
+          from { -moz-transform: rotate(0deg); }
+          to { -moz-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+          from { -webkit-transform: rotate(0deg); }
+          to { -webkit-transform: rotate(360deg); }
+        }
+
+        /* Move sphere from left to right */
+        @-moz-keyframes moveLeftToRight {
+          0%   { left: -50px; }
+          100% { left: 50%; }
+        }
+        @-ms-keyframes moveLeftToRight {
+          0%   { left: -50px; }
+          100% { left: 50%; }
+        }
+        @keyframes moveLeftToRight {
+          0%   { left: -50px; }
+          100% { left: 50%; }
+        }
+        @-webkit-keyframes moveLeftToRight {
+          0%   { left: -50px; }
+          100% { left: 50%; }
+        }
+
+        /* Fade in the picture */
+        @-moz-keyframes fadeIn {
+          0%   { opacity: 1; }
+          10%  { opacity:0; }
+          100% { opacity: 1; }
+        }
+        @-ms-keyframes fadeIn {
+          0%   { opacity: 1; }
+          10%  { opacity:0; }
+          100% { opacity: 1; }
+        }
+        @keyframes fadeIn {
+          0%   { opacity: 1; }
+          10%  { opacity:0; }
+          100% { opacity: 1; }
+        }
+        @-webkit-keyframes fadeIn {
+          0%   { opacity: 1; }
+          10%  { opacity:0; }
+          100% { opacity: 1; }
+        }
+        /* Zoom in the picture */
+        @-moz-keyframes zoomIn {
+          0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+          100% { width:300px; height:300px; transform: translate(-150px,-150px); }
+        }
+        @-ms-keyframes zoomIn {
+          0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+          100% { width:300px; height:300px; transform: translate(-150px,-150px); }
+        }
+        @keyframes zoomIn {
+          0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+          100% { width:300px; height:300px; transform: translate(-150px,-150px); }
+        }
+        @-webkit-keyframes zoomIn {
+          0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+          100% { width:300px; height:300px; transform: translate(-150px,-150px); }
+        }
+        /* Slide the picture right to 75% */
+        @-moz-keyframes slideRight {
+          0%   { left:50%; }
+          100% { left:75%; }
+        }
+        @-ms-keyframes slideRight {
+          0%   { left:50%; }
+          100% { left:75%; }
+        }
+        @keyframes slideRight {
+          0%   { left:50%; }
+          100% { left:75%; }
+        }
+        @-webkit-keyframes slideRight {
+          0%   { left:50%; }
+          100% { left:75%; }
+        }
+        .logo-img {
+            position: absolute;
+            width:300px;
+            height:auto;
+            left:-300px;
+            top:50%;
+            -ms-transform: translate(-150px,-150px); /* IE 9 */
+            -webkit-transform: translate(-150px,-150px); /* Safari */
+            transform: translate(-150px,-150px); /* Standard syntax */
+            /* Animation to spin and move the sphere */
+            -webkit-animation: slideIn 1s ease-out 4s 1;
+            -moz-animation: slideIn 1s ease-out 4s 1;
+            -ms-animation: slideIn 1s ease-out 4s 1;
+            animation: slideIn 1s ease-out 4s 1;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+            -ms-transform-origin: 50% 50%; /* IE 9 */
+            -moz-transform-origin: 50% 50%; /* IE 9 */
+            -webkit-transform-origin: 50% 50%; /* IE 9 */
+            transform-origin: 50% 50%; /* IE 9 */
+        }
+        /* Slide in the logo */
+        @-moz-keyframes slideIn {
+          0%   { left:-300px; }
+          100% { left:25%; }
+        }
+        @-ms-keyframes slideIn {
+          0%   { left:-300px; }
+          100% { left:25%; }
+        }
+        @keyframes slideIn {
+          0%   { left:-300px; }
+          100% { left:25%; }
+        }
+        @-webkit-keyframes slideIn {
+          0%   { left:-300px; }
+          100% { left:25%; }
+        }
+        .social-icons-and-button {
+            display: block;
+            max-width:700px;
+            text-align: center;
+            height:auto;
+            position: relative;
+            margin: 0px auto;
+            top:100%;
+            /* Animation to spin and move the sphere */
+            -webkit-animation: slideUp 1s ease-out 6s 1;
+            -moz-animation: slideUp 1s ease-out 6s 1;
+            -ms-animation: slideUp 1s ease-out 6s 1;
+            animation: slideUp 1s ease-out 6s 1;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+         /* Slide up the icons */
+        @-moz-keyframes slideUp {
+          0%   { top:100%; }
+          100% { top:85%; }
+        }
+        @-ms-keyframes slideUp {
+          0%   { top:100%; }
+          100% { top:85%; }
+        }
+        @keyframes slideUp {
+          0%   { top:100%; }
+          100% { top:85%; }
+        }
+        @-webkit-keyframes slideUp {
+          0%   { top:100%; }
+          100% { top:85%; }
+        }
+        .links {
+            width:50px;
+            height:50px;
+            display: inline-block;
+            position: relative;
+            float:left;
+            line-height: 50px;
+            margin: 0px 5px;
+        }
+        .bottom-section-button {
+            position: relative;
+            display: inline-block;
+            float: left;
+            line-height: 44px;
+            border: 0px;
+            padding:0px 50px;
+            font-size: 26px;
+            font-family: 'Raleway', sans-serif;
+            border-radius: 5px;
+            background-color: cornflowerblue;
+            color:#fff;
+            margin: 2px 20%;
+        }
+        .social-icons-and-button a img {
+            position: relative;
+            width:100%;
+        }
+        @media only screen and (min-width: 769px) and (max-width: 1023px) {
+            img.circle {
+                top:200px;
+            }
+            /* Slide the picture right to 75% */
+            @-moz-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @-ms-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @-webkit-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            .logo-img {
+                top:530px;
+            }
+            /* Slide in the logo picture */
+            @-moz-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @-ms-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @-webkit-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+             /* Slide the picture right to 75% */
+            @-moz-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:85%; }
+            }
+            @-ms-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:85%; }
+            }
+            @keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:85%; }
+            }
+            @-webkit-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:85%; }
+            }
+            .bottom-section-button {
+                margin: 2px 10px;
+            }
+            .inner-div {
+                display: inline-block;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            img.circle {
+                top:22%;
+            }
+            /* Slide the picture right to 75% */
+            @-moz-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @-ms-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            @-webkit-keyframes slideRight {
+              0%   { left:50%; }
+              100% { left:50%; }
+            }
+            /* Zoom in the picture */
+            @-moz-keyframes zoomIn {
+              0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+              100% { width:250px; height:250px; transform: translate(-125px,-125px); }
+            }
+            @-ms-keyframes zoomIn {
+              0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+              100% { width:250px; height:250px; transform: translate(-125px,-125px); }
+            }
+            @keyframes zoomIn {
+              0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+              100% { width:250px; height:250px; transform: translate(-125px,-125px); }
+            }
+            @-webkit-keyframes zoomIn {
+              0%   { width:50px; height:50px; transform: translate(-25px,-25px); }
+              100% { width:250px; height:250px; transform: translate(-125px,-125px); }
+            }
+            .logo-img {
+                max-width:250px;
+                -ms-transform: translate(-125px,-125px); /* IE 9 */
+                -webkit-transform: translate(-125px,-125px); /* Safari */
+                transform: translate(-125px,-125px); /* Standard syntax */
+                top:68%;
+            }
+            /* Slide the picture right to 75% */
+            @-moz-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @-ms-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            @-webkit-keyframes slideIn {
+              0%   { left:-300px; }
+              100% { left:50%; }
+            }
+            .social-icons-and-button {
+                top:200%;
+            }
+             /* Slide the picture right to 75% */
+            @-moz-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:90%; }
+            }
+            @-ms-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:90%; }
+            }
+            @keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:90%; }
+            }
+            @-webkit-keyframes slideUp {
+              0%   { top:100%; }
+              100% { top:90%; }
+            }
+            .bottom-section-button {
+                margin: 2px 10px;
+            }
+            .inner-div {
+                display: inline-block;
+            }
+            .links {
+                width:30px;
+                height:30px;
+                line-height: 30px;
+                margin: 0px 1px;
+            }
+            .bottom-section-button {
+                line-height: 28px;
+                font-size: 18px;
+                margin: 2px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <img class="circle" src="peterWillaton2.jpg" alt="Profile photo"><!-- Profile photo image tag -->
+       <img class="logo-img" src="PW1a.svg" alt="Logo"><!-- Logo image tag -->
+        <div class="social-icons-and-button">
+           <div class="inner-div">
+            <a class="links" href="#">
+                <img src="facebook.png" alt="Facebook">
+            </a>
+            <a class="links" href="#">
+                <img src="Twitter.png" alt="Twitter">
+            </a>
+            <button class="bottom-section-button">Enter</button>
+            <a class="links" href="#">
+                <img src="Google+.png" alt="Google+">
+            </a>
+            <a class="links" href="#">
+                <img src="Linkedin.png" alt="Linkedin">
+            </a>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
